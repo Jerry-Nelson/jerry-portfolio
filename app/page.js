@@ -1,8 +1,11 @@
+'use client';
+import { motion } from 'framer-motion';
+
 export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="bg-gray-50 text-gray-800 py-16 px-6 sm:px-12">
+      <section className="bg-gray-50 text-gray-800 py-16 px-6 sm:px-12 mt-6">
         <div className="max-w-6xl mx-auto flex flex-col-reverse md:flex-row items-center gap-10">
           {/* Text */}
           <div className="text-center md:text-left flex-1">
@@ -30,7 +33,14 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="bg-white py-16 px-6 sm:px-12">
+      <motion.section
+        id="about"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7 }}
+        viewport={{ once: true }}
+        className="bg-white py-16 px-6 sm:px-12"
+      >
         <div className="max-w-4xl mx-auto text-center sm:text-left">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">About Me</h2>
           <p className="text-gray-700 text-lg mb-4 leading-relaxed">
@@ -43,10 +53,18 @@ export default function Home() {
             My goal is to help companies unlock the value in their data and use it to drive strategy, growth, and efficiency.
           </p>
         </div>
-      </section>
+      </motion.section>
+
 
       {/* Skills Section */}
-      <section id="skills" className="bg-gray-50 py-16 px-6 sm:px-12">
+      <motion.section
+        id="skills"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 0.1 }}
+        viewport={{ once: true }}
+        className="bg-gray-50 py-16 px-6 sm:px-12"
+      >
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">Skills</h2>
           <p className="text-gray-600 text-lg mb-10">Tools and technologies I use in my work:</p>
@@ -61,59 +79,170 @@ export default function Home() {
               { name: 'GitHub', src: 'https://cdn.simpleicons.org/github/181717' },
               { name: 'SQL', src: 'https://cdn.simpleicons.org/sqlite/003B57' },
             ].map((tool) => (
-              <div key={tool.name} className="flex flex-col items-center">
+              <motion.div
+                key={tool.name}
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: 'spring', stiffness: 200 }}
+                className="flex flex-col items-center"
+              >
                 <img src={tool.src} alt={tool.name} className="w-12 h-12" />
                 <p className="mt-2 text-gray-800 font-medium">{tool.name}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
+
 
       {/* Projects Placeholder */}
       <section id="projects" className="bg-white py-16 px-6 sm:px-12">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">Projects</h2>
-          <p className="text-gray-600 text-lg mb-10">My recent data projects will appear here. Stay tuned!</p>
+          <p className="text-gray-600 text-lg mb-10">
+            Here are some data projects I’ve worked on and ones I’m currently building.
+          </p>
+
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-            {[1, 2, 3].map((n) => (
-              <div key={n} className="bg-gray-50 border border-gray-200 p-6 rounded-lg shadow-sm">
-                <div className="h-40 bg-gray-200 rounded mb-4 animate-pulse" />
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">Project Title</h3>
-                <p className="text-gray-600 text-sm mb-4">Short description of the project or tool used.</p>
-                <span className="inline-block bg-gray-300 text-gray-700 text-xs px-3 py-1 rounded-full">Coming Soon</span>
+
+            {/* ✅ Real Project */}
+            <motion.a
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.98 }}
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              href="/projects/data-professionals-survey"
+              className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all block"
+            >
+              <img
+                src="/projects/data-professionals-cover.png"
+                alt="Data Professionals Survey"
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-5">
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">Data Professionals Survey</h3>
+                <p className="text-sm text-gray-600 mb-3">
+                  Insights from 600+ data professionals — includes dashboard, report, and presentation.
+                </p>
+                <span className="inline-block bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">
+                  Excel • PDF • PowerPoint
+                </span>
               </div>
-            ))}
+            </motion.a>
+
+            {/* 🔲 Placeholder 1 */}
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all"
+            >
+              <div className="w-full h-48 bg-gray-200 flex items-center justify-center text-4xl text-gray-400">
+                📈
+              </div>
+              <div className="p-5">
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">Market Performance Dashboard</h3>
+                <p className="text-sm text-gray-600 mb-3">
+                  A Power BI dashboard analyzing regional product sales and marketing trends. (Coming Soon)
+                </p>
+                <span className="inline-block bg-gray-100 text-gray-700 text-xs font-medium px-3 py-1 rounded-full">
+                  Power BI
+                </span>
+              </div>
+            </motion.div>
+
+            {/* 🔲 Placeholder 2 */}
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all"
+            >
+              <div className="w-full h-48 bg-gray-200 flex items-center justify-center text-4xl text-gray-400">
+                🧮
+              </div>
+              <div className="p-5">
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">Customer Segmentation Analysis</h3>
+                <p className="text-sm text-gray-600 mb-3">
+                  Excel + Python clustering model to group customers by behavior and value. (Coming Soon)
+                </p>
+                <span className="inline-block bg-gray-100 text-gray-700 text-xs font-medium px-3 py-1 rounded-full">
+                  Excel • Python
+                </span>
+              </div>
+            </motion.div>
+
           </div>
         </div>
       </section>
 
+
+
       {/* Resume Section */}
-      <section id="resume" className="bg-gray-100 py-16 px-6 sm:px-12">
+      <motion.section
+        id="resume"
+        initial={{ opacity: 0, y: 60 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7 }}
+        viewport={{ once: true }}
+        className="bg-gray-100 py-16 px-6 sm:px-12"
+      >
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">View My Resume</h2>
-          <p className="text-gray-600 text-lg mb-8">Download my professional resume highlighting my experience and tools.</p>
-          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition">
+          <p className="text-gray-600 text-lg mb-8">
+            Download my professional resume highlighting my experience and tools.
+          </p>
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition"
+          >
             Download Resume
           </a>
         </div>
-      </section>
+      </motion.section>
+
 
       {/* Contact Section */}
-      <section id="contact" className="bg-gray-100 py-16 px-6 sm:px-12">
+      <motion.section
+        id="contact"
+        initial={{ opacity: 0, y: 60 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 0.1 }}
+        viewport={{ once: true }}
+        className="bg-gray-100 py-16 px-6 sm:px-12"
+      >
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Contact Me</h2>
-          <p className="text-gray-600 text-base sm:text-lg mb-10">I&apos;m open to new roles, collaborations, and networking opportunities.</p>
+          <p className="text-gray-600 text-base sm:text-lg mb-10">
+            I&apos;m open to new roles, collaborations, and networking opportunities.
+          </p>
           <div className="space-y-6 text-left">
-            {/* Email */}
-            <ContactItem icon="📧" label="Email" value="jerrycobbinah775@gmail.com" href="mailto:jerrycobbinah775@gmail.com" />
-            {/* Phone */}
-            <ContactItem icon="📱" label="Phone" value="+233-200-136-829" href="tel:+233200136829" />
-            {/* LinkedIn */}
-            <ContactItem icon="💼" label="LinkedIn" value="linkedin.com/in/jerry-nelson-cobbinah" href="https://www.linkedin.com/in/jerry-nelson-cobbinah-60ab911a5/" />
+            <ContactItem
+              icon="📧"
+              label="Email"
+              value="jerrycobbinah775@gmail.com"
+              href="mailto:jerrycobbinah775@gmail.com"
+            />
+            <ContactItem
+              icon="📱"
+              label="Phone"
+              value="+233-200-136-829"
+              href="tel:+233200136829"
+            />
+            <ContactItem
+              icon="💼"
+              label="LinkedIn"
+              value="linkedin.com/in/jerry-nelson-cobbinah"
+              href="https://www.linkedin.com/in/jerry-nelson-cobbinah-60ab911a5/"
+            />
           </div>
         </div>
-      </section>
+      </motion.section>
+
 
       {/* Footer */}
       <footer className="bg-gray-800 text-gray-200 py-6 px-6 sm:px-12">
