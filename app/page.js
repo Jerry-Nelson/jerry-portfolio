@@ -27,7 +27,6 @@ export default function Home() {
           {/* Image */}
           <div className="flex-1 flex justify-center md:justify-end">
            <img src="/profile.jpg" alt="Jerry Nelson" className="w-40 h-40 sm:w-60 sm:h-60 rounded-2xl object-cover shadow-lg border border-gray-200"/>
-
           </div>
         </div>
       </section>
@@ -54,7 +53,6 @@ export default function Home() {
           </p>
         </div>
       </motion.section>
-
 
       {/* Skills Section */}
       <motion.section
@@ -93,8 +91,7 @@ export default function Home() {
         </div>
       </motion.section>
 
-
-      {/* Projects Placeholder */}
+      {/* Projects Section */}
       <section id="projects" className="bg-white py-16 px-6 sm:px-12">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">Projects</h2>
@@ -103,8 +100,7 @@ export default function Home() {
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-
-            {/* ✅ Real Project */}
+            {/* Data Professionals Survey */}
             <motion.a
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
@@ -115,7 +111,7 @@ export default function Home() {
               className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all block"
             >
               <img
-                src="/projects/data-professionals-cover.png"
+                src="/projects/data.jpg"
                 alt="Data Professionals Survey"
                 className="w-full h-48 object-cover"
               />
@@ -130,55 +126,64 @@ export default function Home() {
               </div>
             </motion.a>
 
-            {/* 🔲 Placeholder 1 */}
-            <motion.div
-              whileHover={{ scale: 1.02 }}
+            {/* E-Commerce Dashboard */}
+            <motion.a
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.98 }}
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all"
+              href="https://github.com/Jerry-Nelson/FUTURE_DS_01"
+              className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all block"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              <div className="w-full h-48 bg-gray-200 flex items-center justify-center text-4xl text-gray-400">
-                📈
-              </div>
+              <img
+                src="/projects/commerce.jpg"
+                alt="E-Commerce"
+                className="w-full h-48 object-cover"
+              />
               <div className="p-5">
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">Market Performance Dashboard</h3>
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">E-Commerce Data Analysis</h3>
                 <p className="text-sm text-gray-600 mb-3">
-                  A Power BI dashboard analyzing regional product sales and marketing trends. (Coming Soon)
+                  Sales performance insights and KPIs with Power BI using a mock e-commerce dataset.
                 </p>
-                <span className="inline-block bg-gray-100 text-gray-700 text-xs font-medium px-3 py-1 rounded-full">
+                <span className="inline-block bg-yellow-100 text-yellow-800 text-xs font-medium px-3 py-1 rounded-full">
                   Power BI
                 </span>
               </div>
-            </motion.div>
+            </motion.a>
 
-            {/* 🔲 Placeholder 2 */}
-            <motion.div
-              whileHover={{ scale: 1.02 }}
+            {/* Facebook Ads Dashboard */}
+            <motion.a
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.98 }}
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all"
+              href="https://github.com/Jerry-Nelson/FUTURE_DS_02"
+              className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all block"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              <div className="w-full h-48 bg-gray-200 flex items-center justify-center text-4xl text-gray-400">
-                🧮
-              </div>
+              <img
+                src="/projects/facebook.jpg"
+                alt="Facebook"
+                className="w-full h-48 object-cover"
+              />
               <div className="p-5">
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">Customer Segmentation Analysis</h3>
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">Facebook Ad Performance</h3>
                 <p className="text-sm text-gray-600 mb-3">
-                  Excel + Python clustering model to group customers by behavior and value. (Coming Soon)
+                  Dashboard analysis of ad impressions, reach, and engagement using Power BI.
                 </p>
-                <span className="inline-block bg-gray-100 text-gray-700 text-xs font-medium px-3 py-1 rounded-full">
-                  Excel • Python
+                <span className="inline-block bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">
+                  Power BI
                 </span>
               </div>
-            </motion.div>
-
+            </motion.a>
           </div>
         </div>
       </section>
-
-
 
       {/* Resume Section */}
       <motion.section
@@ -204,7 +209,6 @@ export default function Home() {
           </a>
         </div>
       </motion.section>
-
 
       {/* Contact Section */}
       <motion.section
@@ -243,7 +247,6 @@ export default function Home() {
         </div>
       </motion.section>
 
-
       {/* Footer */}
       <footer className="bg-gray-800 text-gray-200 py-6 px-6 sm:px-12">
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
@@ -257,7 +260,6 @@ export default function Home() {
   );
 }
 
-// Reusable contact info component
 function ContactItem({ icon, label, value, href }) {
   return (
     <div className="flex items-start gap-3">
